@@ -1,6 +1,6 @@
 # ETH_AVAX_PROOF-Intermediate_EVM_Course
-# MODULE - 1
-# FINAL PROJECT
+**MODULE - 1**
+**FINAL PROJECT**
 
 There are three Error Handling methods in Solidity whose implementation and explanation is shown below through line by line code and it explanation.
 1. require
