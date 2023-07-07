@@ -24,7 +24,7 @@ This line declares a public state variable named balance of type uint (unsigned 
 function withdraw(uint amount) public { ... }
 This line declares a public function named withdraw that takes a parameter amount of type uint and does not return any value.
 
-require(balance > amount, "You do not have enough balance to transfer!");
+# require(balance > amount, "You do not have enough balance to transfer!");
 This line is a condition that checks if the balance is greater than the specified amount. If it's not, the function will revert the transaction and display the error message "You do not have enough balance to transfer!".
 
 balance -= amount;
@@ -36,13 +36,13 @@ This line declares a public function named deposit that takes a parameter amount
 balance += amount;
 This line adds the amount to the balance.
 
-if (balance > 500) { revert("Your balance is exceeding the limit!"); }
+# if (balance > 500) { revert("Your balance is exceeding the limit!"); }
 This line checks if the balance is greater than 500. If it is, the function will revert the transaction and display the error message "Your balance is exceeding the limit!".
 
 function isempty() public view returns (string memory) { ... }
 This line declares a public view function named isempty that does not take any parameters and returns a string value.
 
-assert(balance == 0);
+# assert(balance == 0);
 This line is an assertion that checks if the balance is equal to 0. If it's not, it will throw an exception.
 
 return "Sorry! You have no money for the transaction.";
