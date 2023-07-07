@@ -7,7 +7,7 @@ There are three Error Handling methods in Solidity whose implementation and expl
 2. assert
 3. revert
 
-CODE EXPLANATION:
+**CODE EXPLANATION:**
 
 # // SPDX-License-Identifier: MIT
 This is a comment that indicates the license under which the code is released. In this case, it specifies the MIT License.
