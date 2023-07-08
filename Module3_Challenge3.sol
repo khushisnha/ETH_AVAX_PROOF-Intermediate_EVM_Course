@@ -1,0 +1,3 @@
+/*
+Write a smart contract that employs view and pure functions.
+*/
