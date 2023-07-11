@@ -1,10 +1,10 @@
-# Creating a Frontend and connecting it to Metamask
+# Creating a Frontend and connecting it to MetaMask
 
-These codes execution and implemention will lead to the creation of a frontend which can be connected with crypto wallets like Metamask. It contains functionality and its explanation in detail.
+These codes execution and implemention will lead to the creation of a frontend which can be connected with crypto wallets like MetaMask. It contains functionality and its explanation in detail.
 
 ## Description
 
-This project is implemented using three programming languages, i.e., html, javascript and solidity. html file here is used for designing the interface of the frontend. Javascript is used for dApp and ensuring that the user has an Ethereum compatible browser like Metamask is installed or not. Solidity program here is used for deploying the required contract.
+This project is implemented using three programming languages, i.e., html, javascript and solidity. html file here is used for designing the interface of the frontend. Javascript is used for dApp and ensuring that the user has an Ethereum compatible browser like MetaMask is installed or not. Solidity program here is used for deploying the required contract.
 
 ## App.js file Explanation:
 
