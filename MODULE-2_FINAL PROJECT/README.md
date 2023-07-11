@@ -1,4 +1,4 @@
-# Creating a Frontend and connecting it to MetaMask
+# SMART CONTRACT FRONTEND INTEGRATION
 
 These codes execution and implemention will lead to the creation of a frontend which can be connected with crypto wallets like MetaMask. It contains functionality and its explanation in detail.
 
