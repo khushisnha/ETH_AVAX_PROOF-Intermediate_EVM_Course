@@ -24,20 +24,20 @@ contract Myether is ERC20 {
         _;
     }
 
-    function mint(address to, uint256 amount) public onlyOwner
+    function mintToken(address to, uint256 amount) public onlyOwner
     {
-        _mint(to, amount);
+        _mintToken(to, amount);
     }
 
-    function burn(uint256 amount) public {
-        _burn(msg.sender, amount);
+    function burnToken(uint256 amount) public {
+        _burnToken(msg.sender, amount);
     }
 
-    function transfer(address to, uint256 amount) public override returns (bool) {
+    function transferTokens(address to, uint256 amount) public override returns (bool) {
 
         require(amount <= balanceOf(msg.sender), "Not enough balance to Transfer!");
 
-        _transfer(msg.sender, to, amount);
+        _transferTokens(msg.sender, to, amount);
 
         return true;
     }
