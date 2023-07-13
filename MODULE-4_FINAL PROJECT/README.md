@@ -139,6 +139,11 @@ The require statement checks whether the amount to be transferred is less than o
 The _transfer function is called to transfer the tokens from the msg.sender to the to address. It moves amount tokens from the msg.sender to to.
 The function returns true to indicate that the transfer was successful.
 
+![image](https://github.com/khushisnha/ETH_AVAX_PROOF-Intermediate_EVM_Course/assets/137313256/4021505f-c2aa-472b-a599-0d003b65a814)
+
+
+![image](https://github.com/khushisnha/ETH_AVAX_PROOF-Intermediate_EVM_Course/assets/137313256/4455f535-250d-42bb-a296-ba0eb5e1e69b)
+
 ## Authors
 
 Khushi 
