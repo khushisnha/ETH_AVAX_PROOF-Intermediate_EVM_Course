@@ -103,44 +103,6 @@ The <script> tag at the end of the code includes JavaScript code that interacts 
 ```
 The JavaScript code sets up the connection to the Ethereum network using web3.eth.Contract, specifying the contract's ABI (Application Binary Interface) and address. It retrieves the current balance using getBalance() and updates the #balance element with the received value.
 
-It also attaches a click event listener to the #deposit button. When clicked, it retrieves the amount entered in the #amount field, gets the user's Ethereum account, and calls the deposit() function on the smart contract, passing the amount and account information.
-
-```html
-contract = new web3.eth.Contract(abi, address);
-````
-This line creates an instance of the web3.eth.Contract class, which allows interaction with a smart contract on the Ethereum network. It takes two parameters: the ABI (Application Binary Interface) of the smart contract and its address. The ABI defines the structure and functions of the smart contract, while the address specifies the location of the deployed contract on the blockchain.
-
-```html
-contract.methods.getBalance().call().then(function(bal) {
-  $('#balance').html(bal);
-})
-````
-Here, the getBalance() method of the smart contract is called using the contract.methods object. This method retrieves the balance of the current user's account from the smart contract. The call() function is used to make a read-only call to the smart contract without modifying the blockchain. The resulting balance value is then displayed by updating the HTML element with the id balance using jQuery's html() function.
-
-```html
-$('#deposit').click(function() {
-  var amt = 0;
-  amt = parseInt($("#amount").val());
-  web3.eth.getAccounts().then(function(accounts) {
-    var acc = accounts[0];
-    return contract.methods.incrementBalance(amt).send({from: acc});
-  }).then(function(tx) {
-    console.log(tx);
-  }).catch(function(tx) {
-    console.log(tx);
-  })
-})
-````
-This code sets up a click event listener for the element with the id deposit (presumably a button). When the button is clicked, the following steps are performed:
-
-The value entered in the HTML input element with the id amount is retrieved and parsed as an integer, storing it in the amt variable.
-web3.eth.getAccounts() is called to retrieve the user's Ethereum accounts. It returns a promise that resolves to an array of accounts.
-The first account from the accounts array is assigned to the acc variable.
-The incrementBalance() function of the smart contract is invoked using contract.methods.incrementBalance(amt). The amt value is passed as an argument to the function.
-The send() function is used to send a transaction to the smart contract, specifying the from address as acc. This function returns a promise.
-If the transaction is successful, the promise is resolved, and the resulting transaction object is logged to the console using console.log(tx).
-If there is an error during the transaction, the promise is rejected, and the error object is logged to the console.
-
 ![image](https://github.com/khushisnha/ETH_AVAX_PROOF-Intermediate_EVM_Course/assets/137313256/23cbf2df-ecf9-424b-b355-7556c9236fa9)
 
 # Integrate.js file explanation:
