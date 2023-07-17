@@ -55,6 +55,8 @@ The decrementBalance function allows the caller to decrease their balance by a s
 ```
 The getBalance function is a public view function that takes an address as input and returns the balance associated with that address. It allows anyone to query the balance of any address without modifying the state of the contract.
 
+![image](https://github.com/khushisnha/ETH_AVAX_PROOF-Intermediate_EVM_Course/assets/137313256/3264ce44-bdcd-4f17-8e3d-ef9f5bf7d011)
+
 # Interface.html file explanation:
 
 ## Description
@@ -138,6 +140,8 @@ The incrementBalance() function of the smart contract is invoked using contract.
 The send() function is used to send a transaction to the smart contract, specifying the from address as acc. This function returns a promise.
 If the transaction is successful, the promise is resolved, and the resulting transaction object is logged to the console using console.log(tx).
 If there is an error during the transaction, the promise is rejected, and the error object is logged to the console.
+
+![image](https://github.com/khushisnha/ETH_AVAX_PROOF-Intermediate_EVM_Course/assets/137313256/23cbf2df-ecf9-424b-b355-7556c9236fa9)
 
 # Integrate.js file explanation:
 
