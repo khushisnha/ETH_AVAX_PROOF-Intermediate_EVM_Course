@@ -1,5 +1,4 @@
-//code here is used of javascript for implementing and triggering functions on the frontend
-
+//integrating and triggering functions
 window.addEventListener('load', async () => {
   if (window.ethereum) 
   {
@@ -95,15 +94,15 @@ window.addEventListener('load', async () => {
   const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
 
   window.incrementBalance = async () => {
-    await contractInstance.methods.incrementCryptocurrency().send({ from: web3.eth.defaultAccount });
+    await contractInstance.methods.incrementBalance().send({ from: web3.eth.defaultAccount });
   };
 
   window.decrementBalance = async () => {
-    await contractInstance.methods.incrementCryptocurrency().send({ from: web3.eth.defaultAccount });
+    await contractInstance.methods.decrementBalance().send({ from: web3.eth.defaultAccount });
   };
 
   window.getBalance = async () => {
-    const value = await contractInstance.methods.getCryptocurrency().call();
+    const value = await contractInstance.methods.getBalance().call();
     document.getElementById('currentValue').innerText = value;
   };
 });
