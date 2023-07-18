@@ -43,12 +43,34 @@ The pragma solidity statement specifies the version of the Solidity compiler tha
 ```solidity
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+```
+
+This import brings in the ERC20.sol file, which contains a standard implementation of the ERC-20 token. It provides basic functionalities like balanceOf, transfer, and allowance.
+
+```solidity
+
 import "@openzeppelin/contracts/access/Ownable.sol";
+
+```
+
+This import includes the Ownable.sol file, which provides a basic contract ownership mechanism. It ensures that certain functions can only be executed by the contract owner.
+
+```solidity
+
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+
+````
+
+This import brings in ERC20Burnable.sol, an extension of the ERC-20 token contract. It adds the ability to burn (destroy) tokens, which means reducing the total supply.
+
+```solidity
+
 import "hardhat/console.sol";
 
 ```
-These lines import the necessary Solidity contracts from the OpenZeppelin library and a console utility from Hardhat for debugging purposes.
+
+The line import "hardhat/console.sol"; is an import statement that includes the console.sol file from the Hardhat library. 
 
 ```solidity
 
@@ -60,14 +82,15 @@ This line defines a new Solidity contract called GT. It inherits from three othe
 
 ```solidity
 
-constructor() ERC20("Khushi", "DGN") {}
+constructor() ERC20("Degen", "DGN") {}
 
 ```
 
-This is the constructor function of the GT contract. It is called when the contract is deployed. It sets the name of the token to "Khushi" and its symbol to "DGN" using the ERC20 constructor.
+This is the constructor function of the GT contract. It is called only ones when the contract is deployed. It sets the name of the token to "Degen" and its symbol to "DGN" using the ERC20 constructor.
 
 ```solidity
 
+//Minting new tokens
 function mint(address to, uint amount) public onlyOwner {
     _mint(to, amount);
 }
@@ -75,26 +98,6 @@ function mint(address to, uint amount) public onlyOwner {
 ```
 
 The mint function allows the contract owner (the address that deployed the contract) to mint new tokens and assign them to a specified address (to). The number of tokens to be minted is specified by the amount parameter.
-
-```solidity
-
-function decimals() override public pure returns (uint8) {
-    return 0;
-}
-  
-```
-
-This function overrides the decimals function inherited from the ERC20 contract. It returns the number of decimal places used by the token. In this case, it returns 0, indicating that the token does not have any decimal places.
-
-```solidity
-
-function getBalance() external view returns (uint256) {
-    return this.balanceOf(msg.sender);
-}
-
-```
-
-The getBalance function is an external view function that allows an external caller to check the token balance of the address calling the function (msg.sender). It returns the token balance of the caller.
 
 ```solidity
 
@@ -113,6 +116,41 @@ The transferFrom function is called to transfer the tokens from the msg.sender t
 
 ```solidity
 
+//Redeeming tokens
+        function redeemForItem(uint256 itemNo) public {
+        uint256 amount;
+        
+        if (itemNo == 1) {
+            amount = 1;
+        } else if (itemNo == 2) {
+            amount = 2;
+        } else if (itemNo == 3) {
+            amount = 3;
+        } else {
+            emit LogMessage("Redemption was UN-Successful");
+            return;
+        }
+
+        _burn(msg.sender, amount);
+        emit LogMessage("Redemption is Successful");
+    }
+
+```
+
+The redeemForItem function allows users to redeem their tokens for specific items based on the itemNo parameter provided. Depending on the value of itemNo, a corresponding amount of tokens to be burned is determined (1, 2, or 3 tokens). If the provided itemNo does not match any of these values, the redemption is considered unsuccessful, and a message is emitted through the LogMessage event. If the redemption is successful, the tokens are burned using the _burn function, and a success message is emitted.
+
+```solidity
+
+function getBalance() external view returns (uint256) {
+    return this.balanceOf(msg.sender);
+}
+
+```
+
+The getBalance function is an external view function that allows an external caller to check the token balance of the address calling the function (msg.sender). It returns the token balance of the caller.
+
+```solidity
+
 function burnTokens(uint256 _value) external {
     require(balanceOf(msg.sender) >= _value, "INSUFFICIENT TOKENS!!");
     _burn(msg.sender, _value);
@@ -126,18 +164,13 @@ The _burn function is called to burn (remove) the specified amount of tokens fro
 
 ```solidity
 
-function transfer(address to, uint256 amount) public override returns (bool) {
-    require(amount <= balanceOf(msg.sender), "Not enough balance to Transfer!");
-    _transfer(msg.sender, to, amount);
-    return true;
+function decimals() override public pure returns (uint8) {
+    return 0;
 }
-
+  
 ```
 
-The transfer function allows the sender to transfer tokens to another address to. It takes two parameters: to, the address of the recipient, and amount, the amount of tokens to be transferred.
-The require statement checks whether the amount to be transferred is less than or equal to the balance of the msg.sender. If the condition evaluates to false, meaning the sender does not have enough tokens, the function will revert with the error message "Not enough balance to Transfer!".
-The _transfer function is called to transfer the tokens from the msg.sender to the to address. It moves amount tokens from the msg.sender to to.
-The function returns true to indicate that the transfer was successful.
+This function overrides the decimals function inherited from the ERC20 contract. It returns the number of decimal places used by the token. In this case, it returns 0, indicating that the token does not have any decimal places.
 
 ![image](https://github.com/khushisnha/ETH_AVAX_PROOF-Intermediate_EVM_Course/assets/137313256/8ca1a18d-6c4e-4735-860d-3998e7dce355)
 
